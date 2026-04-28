@@ -1,0 +1,19 @@
+
+Works for mac only (as it depends on `pbcopy`)
+```sh
+ln -s /path/to/repo ~/bin/copy_for_llm
+```
+
+Then, in the dir you want to copy:
+
+```
+copy_for_llm
+```
+
+Will copy everything in your current directory
+
+To exclude a file or folder:
+
+```
+echo "node_modules" >> .llmignore
+```

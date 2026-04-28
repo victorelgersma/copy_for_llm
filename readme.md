@@ -1,3 +1,4 @@
+# Copy For LLM (To Clipboard)
 
 Useful BASH script for developing with open-access LLM tools like Chat Jippity, Claudi-bot, and Geminini
 
@@ -19,4 +20,3 @@ To exclude a file or folder:
 ```
 echo "node_modules" >> .llmignore
 ```
-# copy_for_llm

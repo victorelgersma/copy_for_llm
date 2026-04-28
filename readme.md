@@ -1,4 +1,6 @@
 
+Useful BASH script for developing with open-access LLM tools like Chat Jippity, Claudi-bot, and Geminini
+
 Works for mac only (as it depends on `pbcopy`)
 ```sh
 ln -s /path/to/repo ~/bin/copy_for_llm
@@ -17,3 +19,4 @@ To exclude a file or folder:
 ```
 echo "node_modules" >> .llmignore
 ```
+# copy_for_llm

@@ -22,8 +22,17 @@ ln -s /path/to/copy_for_llm/main ~/bin/copy_for_llm
 Simply run the command in your project root: 
 
 ```sh
-copy_for_llm
+victorelgersma@macbox:~/dev/pypsa$ echo "__pycache__" >> .llmignore
+victorelgersma@macbox:~/dev/pypsa$ echo "venv" >> .llmignore
+victorelgersma@macbox:~/dev/pypsa$ copy_for_llm 
+Copying: ./main.ipynb
+Copying: ./pypsa_stuff.ipynb
+Copying: ./my_pypsa.py
+
+Successfully copied files to clipboard (Excluding: venv __pycache__ __pycache__ venv)
+victorelgersma@macbox:~/dev/pypsa$ 
 ```
+
 
 ## Excluding Files
 

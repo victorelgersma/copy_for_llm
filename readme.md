@@ -1,22 +1,42 @@
-# Copy For LLM (To Clipboard)
+# Copy For LLM (To Clipboard) 🏄‍♂️
 
-Useful BASH script for developing with open-access LLM tools like Chat Jippity, Claudi-bot, and Geminini
+A lightweight BASH utility to bundle your project's source code into a single, LLM-friendly format. Perfect for when you're collaborating with Chat Jippity, Claudi-bot, or Geminini.
 
-Works for mac only (as it depends on `pbcopy`)
+## Features
+- **Recursive Copying:** Grabs your entire project structure.
+- **Smart Formatting:** Prepends each file with an `=== filename ===` header for clear context.
+- **Ignore Logic:** Supports a `.llmignore` file (works just like `.gitignore`).
+- **Visual Feedback:** Prints a list of copied files to your terminal without polluting your clipboard.
+
+## Installation (macOS)
+
+1. Ensure you have a `~/bin` directory (or somewhere else in your `$PATH`).
+2. Symlink the script:
+
 ```sh
-ln -s /path/to/copy_for_llm/main ~/bin/copy_for_llm
+$ ln -s /path/to/copy_for_llm/main ~/bin/copy_for_llm
 ```
 
-Then, in the dir you want to copy:
+## Usage 
 
+Simply run the command in your project root: 
+
+```sh
+$ copy_for_llm
 ```
-copy_for_llm
-```
 
-Will copy everything in your current directory
+## Excluding Files
 
-To exclude a file or folder:
+Create a `.llmignore` file in your project root. The script will skip any files or directories listed (one per line).
 
-```
+```sh
+# Example: Ignore bulky or irrelevant folders
 echo "node_modules" >> .llmignore
+echo "dist" >> .llmignore
+echo "temp_notes.txt" >> .llmignore
 ```
+
+## Requirements
+
+macOS: Depends on pbcopy.
+BASH: Built for a standard Unix shell environment.

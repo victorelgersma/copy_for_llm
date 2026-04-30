@@ -1,0 +1,2 @@
+
+ - [ ] make cross platform (add some check for macOS and only use pbcopy in that case?)

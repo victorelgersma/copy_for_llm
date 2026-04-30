@@ -33,6 +33,7 @@ Successfully copied files to clipboard (Excluding: venv __pycache__ __pycache__ 
 victorelgersma@macbox:~/dev/pypsa$ 
 ```
 
+Now you can paste it into your favorite LLM with the knowledge that it has all the context it needs. 
 
 ## Excluding Files
 

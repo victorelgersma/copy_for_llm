@@ -1,31 +1,37 @@
 #!/bin/bash
 # copy_for_llm: Recursively copy files with headers, excluding paths from .llmignore, to clipboard
 
-# Initialize array of excluded paths
 EXCLUDES=()
 
 # Read .llmignore if it exists
 if [[ -f ".llmignore" ]]; then
     while IFS= read -r line || [[ -n "$line" ]]; do
-        # Skip empty lines and comments
         [[ -z "$line" || "$line" =~ ^# ]] && continue
         EXCLUDES+=("$line")
     done < ".llmignore"
 fi
 
 # Build find command
-FIND_CMD=(find . -type f -not -path '*/.*')  # exclude hidden files
+FIND_CMD=(find . -type f -not -path '*/.*')
 
-# Add exclusions from .llmignore
 for ex in "${EXCLUDES[@]}"; do
     FIND_CMD+=(-not -path "./$ex" -not -path "./$ex/*")
 done
 
-# Execute find and process files
+# Execute find and process
 "${FIND_CMD[@]}" | while IFS= read -r file; do
+    # Print the filename to the terminal (stderr) so it doesn't go to clipboard
+    echo "Copying: $file" >&2
+    
+    # Send the formatted content to stdout (which goes to pbcopy)
     echo "=== $file ==="
     cat "$file"
     echo -e "\n"
 done | pbcopy
 
-echo "All files copied to clipboard (excluding: ${EXCLUDES[*]})"
+# Final status message
+if [ ${#EXCLUDES[@]} -gt 0 ]; then
+    echo -e "\nSuccessfully copied files to clipboard (Excluding: ${EXCLUDES[*]})"
+else
+    echo -e "\nSuccessfully copied all files to clipboard."
+fi

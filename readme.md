@@ -14,7 +14,7 @@ A lightweight BASH utility to bundle your project's source code into a single, L
 2. Symlink the script:
 
 ```sh
-$ ln -s /path/to/copy_for_llm/main ~/bin/copy_for_llm
+ln -s /path/to/copy_for_llm/main ~/bin/copy_for_llm
 ```
 
 ## Usage 
@@ -22,7 +22,7 @@ $ ln -s /path/to/copy_for_llm/main ~/bin/copy_for_llm
 Simply run the command in your project root: 
 
 ```sh
-$ copy_for_llm
+copy_for_llm
 ```
 
 ## Excluding Files
